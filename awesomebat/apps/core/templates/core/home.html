@@ -1,0 +1,15 @@
+{% extends "_base.html" %}
+{% load i18n %}
+{% block title %}
+DjangoTB
+{% endblock title %}
+{% block main %}
+<div class="text-center pt-5">
+    <h1 class="display-4">{% trans 'Home Page' %}</h1>
+    <p class="lead text-muted">{% trans 'Quickly and Easily Way to Create a Django Project' %} <b>djangotb</b></p>
+    <p>
+        <a href="http://djangobat.com/" class="btn btn-success my-2">djangobat.com</a>
+        <a href="https://github.com/djangobat/djangotb" class="btn btn-secondary my-2"><i class="fab fa-github"></i> Code Github</a>
+    </p>
+</div>
+{% endblock main %}

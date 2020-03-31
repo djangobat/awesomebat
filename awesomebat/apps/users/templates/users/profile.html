@@ -1,0 +1,67 @@
+{% extends "_base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}
+Profile
+{% endblock title %}
+{% block css %}
+{% comment "datapicker" %}
+<link rel="stylesheet" href="{% static 'vendor/tempusdominus-bootstrap/css/tempusdominus-bootstrap-4.min.css' %}">
+{% endcomment %}
+<link rel="stylesheet" href="{% static 'vendor/datepicker-0.6.5/css/datepicker.min.css' %}">
+{% endblock css %}
+{% block main %}
+<div class="row">
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-body text-center">
+                <div class="">
+                    <div>
+                        <img src="{% static 'images/avatar.png' %}" style="width: 150px;height: 150px;border-radius: 150px;border: 5px solid #fff;">
+                    </div>
+                    <h5 class="card-title">{{ user.username }}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <div class="card-body">
+            <h5 class="card-title">{% trans "Edit your account" %}</h5>
+            {% if is_valid %}
+            <div class="alert alert-success">
+                {% trans 'The information was successfully updated' %}
+            </div>
+            {% endif %}
+            {% crispy form %}
+        </div>
+    </div>
+</div>
+{% endblock main %}
+{% block javascript %}
+{% block comment %}
+<script src="{% static 'vendor/moment/js/moment.min.js' %}"></script>
+<script src="{% static 'vendor/moment/js/moment_vi.js' %}"></script>
+<script src="{% static 'vendor/tempusdominus-bootstrap/js/tempusdominus-bootstrap-4.min.js' %}"></script>
+{% endblock comment %}
+<script src="{% static 'vendor/datepicker-0.6.5/js/datepicker.min.js' %}"></script>
+<script src="{% static 'vendor/datepicker-0.6.5/js/datepicker.vi-VN.js' %}"></script>
+<script>
+$(function() {
+
+    // DATE PICKER
+    $("form").attr('novalidate', 'novalidate');
+
+    // https://tempusdominus.github.io/bootstrap-4/Usage/#bootstrap4-v5-docs
+    // $('#datetimepicker1').datetimepicker({
+    //     format: 'L',
+    // });
+
+    // https://github.com/fengyuanchen/datepicker
+    $(".datepicker").datepicker({
+        language: 'vi-VN',
+        format: 'yyyy-mm-dd',
+    });
+});
+</script>
+{% endblock javascript %}

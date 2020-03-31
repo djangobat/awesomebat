@@ -1,0 +1,44 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+
+    <title>{% block title %}{% endblock title %}</title>
+    
+    <!-- SEO -->
+    <meta name="author" content="">
+    <meta name="description" content="ứng dụng giúp khởi tạo và chạy dự án Django nhanh chóng">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.png' %}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'vendor/bootstrap-4.3.1/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendor/fontawesome-free-5.11.2/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+    {% block css %}
+        
+    {% endblock css %}
+</head>
+<body>
+    
+    {% include "includes/header.html" %}
+    <div class="container">
+        {% block main %}t
+        {% endblock main %}
+    </div>
+    
+    <!-- JQUERY v3.4.1 -->
+    <script src="{% static 'vendor/jquery-3.4.1.min.js' %}"></script>
+    <!-- Bootstrap JS -->
+    <script src="{% static 'vendor/bootstrap-4.3.1/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'vendor/popper/js/popper.min.js' %}"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+    {% block javascript %}
+        
+    {% endblock javascript %}
+</body>
+</html>
